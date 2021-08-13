@@ -1,0 +1,34 @@
+// Reversing an array 
+// takes O(N) time and O(1) Space
+
+#include <bits/stdc++.h>
+using namespace std;
+void Reverse_Array(int A[], int n)
+{
+    int l = 0;
+    int h = n - 1;
+    while (l < h)
+    {
+        swap(A[l], A[h]);
+        l += 1;
+        h -= 1;
+    }
+}
+
+int main()
+{
+    int A[] = {1, 25, 36, 51, 63, 100};
+    int n = sizeof(A) / sizeof(A[0]);
+    for (int i = 0; i < n; i++)
+    {
+        cout << A[i] << " ";
+    }
+    cout << endl;
+    Reverse_Array(A, n);
+    for (int i = 0; i < n; i++)
+    {
+        cout << A[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
