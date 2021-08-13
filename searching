@@ -1,4 +1,7 @@
-//LINEAR SEARCH
+//LINEAR SEARCH --- Brute Force
+//TC-O(N), SC-O(1)
+
+
 #include <bits/stdc++.h>
 using namespace std;
 int linear_search(int a[], int n, int key)
@@ -32,5 +35,55 @@ int main()
     return 0;
 }
 
-//BINARY SEARCH
 
+******************************************************************************************************************************************************************************
+
+//BINARY SEARCH
+//it'a divide and conqure searching technique
+//O(log(n)) TC ,O(1) SC
+//Works only on sorted arrays or search space is monotonic -- non inc/non dec
+
+
+#include <bits/stdc++.h>
+using namespace std;
+int Binary_Search(int A[], int n, int key)
+{
+    int l = 0;
+    int h = n - 1;
+    while (l <= h)
+    {
+        int mid = (l + h) / 2;
+        if (key == A[mid])
+        {
+            return mid;
+        }
+        else if (key < A[mid])
+        {
+            h = mid - 1;
+        }
+        else
+        {
+            l = mid + 1;
+        }
+    }
+    return -1;
+}
+
+int main()
+{
+    int key;
+    int A[] = {1, 25, 36, 51, 63, 100};
+    int n = sizeof(A) / sizeof(A[0]);
+    cin >> key;
+    int index = Binary_Search(A, n, key);
+
+    if (index == -1)
+    {
+        cout << key << "isn't found";
+    }
+    else
+    {
+        cout << key << "is present at index " << index;
+    }
+    return 0;
+}
