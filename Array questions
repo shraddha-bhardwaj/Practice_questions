@@ -130,8 +130,10 @@ void printingsubarraysum(int a[], int n)
             int subsum = 0;
             for (int k = i; k <= j; k++)
             {
+                cout << a[k] << ",";
                 subsum += a[k];
-                        }
+            }
+            cout << endl;
             cout << subsum;
             cout << endl;
             largest_sum = max(largest_sum, subsum);
