@@ -153,13 +153,13 @@ int main()
 
 ****************************************************************************************************************************************************************************
 
-//finding each subarray sum and the largest sum among them --prefix sum approach --O(N2)
+//finding each subarray sum and the largest sum among them --prefix sum approach --O(N2)TC , SC-O(N) due to extra space taken by prefix array in the stack memory
 
 #include <bits/stdc++.h>
 using namespace std;
 void printingsubarraysum(int a[], int n)
 {
-    int prefix[100] = {0};
+    int prefix[n+1] = {0};
     prefix[0] = a[0];
     for (int i = 1; i < n; i++)
     {
@@ -177,6 +177,45 @@ void printingsubarraysum(int a[], int n)
         }
     }
     cout << largest_sum;
+}
+int main()
+{
+    int a[5];
+    for (int i = 0; i < 5; i++)
+    {
+        cin >> a[i];
+    }
+    int n = sizeof(a) / sizeof(int);
+    for (int i = 0; i < 5; i++)
+    {
+        cout << a[i] << ",";
+    }
+    cout << endl;
+    printingsubarraysum(a, n);
+
+    return 0;
+}
+
+*****************************************************************************************************************************************************************************
+
+//SUBARRAY SUM- Kadane's Algo-O(N),SC-O(1)
+
+#include <bits/stdc++.h>
+using namespace std;
+void printingsubarraysum(int a[], int n)
+{
+    int cs = 0;
+    int ms = 0;
+    for (int i = 0; i < n; i++)
+    {
+        cs = cs + a[i];
+        if (cs < 0)
+        {
+            cs = 0;
+        }
+        ms = max(ms, cs);
+    }
+    cout << ms;
 }
 int main()
 {
