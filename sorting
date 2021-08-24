@@ -1,4 +1,5 @@
 //BUBBLE SORT IN O(N2)
+//OPTIMIZED BUBBLE SORT - O(N2) WORST CASE AND O(N) BEST CASE
 
 
 #include <bits/stdc++.h>
@@ -12,6 +13,23 @@ void bubble_sort(vector <int> &A, int n){
           }
       }
     }
+vector <int> optimizedbubble_sort(vector <int> &A){
+    int n=A.size();
+    bool swapped;
+    for(int i=0;i<=n-1;i++){
+         swapped=false;
+         for(int j=0;j<=n-i-1;j++){
+             if(A[j]>A[j+1]){
+                 swap(A[j],A[j+1]);
+                 swapped=true;
+             }
+         }
+         if(swapped==false){
+             break;
+         }
+    }
+    return A;
+}
 int main() {
 	// your code goes here
     vector <int> A1={0,-3,-3,-1};
@@ -27,7 +45,15 @@ int main() {
     for(int x:A2){
         cout<<x<<" ";
     }
-
+    optimizedbubble_sort(A1);
+    optimizedbubble_sort(A2);
+    for(int x:A1){
+        cout<<x<<" ";
+    }
+    cout<<endl;
+    for(int x:A2){
+        cout<<x<<" ";
+    }
  
 	return 0;
 }
