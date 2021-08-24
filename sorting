@@ -1,0 +1,35 @@
+//BUBBLE SORT IN O(N2)
+
+
+#include <bits/stdc++.h>
+using namespace std;
+void bubble_sort(vector <int> &A, int n){
+      for(int i=0;i<=n-1;i++) {
+          for(int j=0;j<=n-i-1;j++){
+              if(A[j]>A[j+1]){
+                  swap(A[j],A[j+1]);
+              }
+          }
+      }
+    }
+int main() {
+	// your code goes here
+    vector <int> A1={0,-3,-3,-1};
+    vector <int> A2={1,-2,3,4,4,-2};
+    int n1=A1.size();
+    int n2=A2.size();
+    bubble_sort(A1,n1);
+    bubble_sort(A2,n2);
+    for(int x:A1){
+        cout<<x<<" ";
+    }
+    cout<<endl;
+    for(int x:A2){
+        cout<<x<<" ";
+    }
+
+ 
+	return 0;
+}
+
+******************************************************************************************************************************************************************************
