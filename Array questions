@@ -159,7 +159,7 @@ int main()
 using namespace std;
 void printingsubarraysum(int a[], int n)
 {
-    int prefix[n+1] = {0};
+    int prefix[100] = {0};
     prefix[0] = a[0];
     for (int i = 1; i < n; i++)
     {
