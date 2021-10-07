@@ -121,3 +121,68 @@ vector<int> sortingWithComparator(vector<int> a, bool flag){
     
 }
 ****************************************************************************************************************************************************************************
+// bubble selection and insertion sort
+
+#include <bits/stdc++.h>
+
+using namespace std;
+void bubblesort(int a[],int n){
+    bool swapped;
+    for(int i=0;i<n;i++){
+        swapped=false;
+        for(int j=0;j<n-i;j++){
+            if(a[j]>a[j+1]){
+                swap(a[j],a[j+1]);
+                swapped= true;
+            }
+        }
+        if(swapped==false){
+        break;
+    }
+    }
+    for(int i=0;i<n;i++){
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+}
+void selectionsort(int a[],int n){
+    for(int i=0;i<n-1;i++){
+        int minii=i;
+        for(int j=i;j<n;j++){
+            if(a[j]<a[minii]){
+                minii=j;
+            }
+        }
+        swap(a[i],a[minii]);
+    }
+    for(int i=0;i<n;i++){
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+}
+void insertionsort(int a[],int n){
+    for(int i=1;i<n;i++){
+        int temp=a[i];
+        int j=i-1;
+        while(j>=0 and a[j]>temp){
+            a[j+1]=a[j];
+            j--;
+        }
+        a[j+1]=temp;
+    }
+     for(int i=0;i<n;i++){
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+}
+int main()
+{   int a[]={1,8,5,3,2,9};
+    int n=sizeof(a)/sizeof(int);
+    bubblesort(a,n);
+    insertionsort(a,n);
+    selectionsort(a,n);
+    
+
+    return 0;
+}
+******************************************************************************************************************************************************************************
