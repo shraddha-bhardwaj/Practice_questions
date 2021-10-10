@@ -358,7 +358,7 @@ return a;
     
 }
 *****************************************************************************************************************************************************************************
-// char array -- to find total no. of spaces, digits, alpha.
+// char array -- to find total no. of spaces, digits, alpha, using cin.get()
 
 #include<bits/stdc++.h>
 using namespace std;
