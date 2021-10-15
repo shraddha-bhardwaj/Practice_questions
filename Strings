@@ -89,3 +89,27 @@ int main()
     return 0;
 }
 *****************************************************************************************************************************************************************************
+// check palindrome
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool isPalindrome(string str)
+{
+    // your code goes here
+    string check=str;
+    int n=str.length();
+    int l=0,h=n-1;
+    while(l<h){
+        swap(check[l],check[h]);
+        l++;
+        h--;
+    }
+    if(check==str){
+        return true;
+    }
+    else{
+        return false;
+    }
+    
+}
