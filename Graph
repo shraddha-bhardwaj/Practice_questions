@@ -1,0 +1,45 @@
+//representation of adj list 
+
+#include <bits/stdc++.h>
+#include<list>
+using namespace std;
+class Graph{
+    int V;
+    list<int> *l;
+public:
+    Graph(int v){
+        V=v;
+        l= new list<int> [V];
+    }
+    void edges(int i, int j, bool undir=true){
+        l[i].push_back(j);
+        if(undir){
+            l[j].push_back(i);
+        }
+    }
+     void printadjlist(){
+         //iterate over each row
+         for(int i=0;i<V;i++){
+             cout<<i<<"-->";
+             //iterate over elements of each row
+             for(auto node:l[i]){
+                 cout<<node<<",";
+             }
+             cout<<endl;
+         }
+     }
+};
+int main() {
+    Graph g(6);
+    g.edges(0,1);
+    g.edges(0,4);
+    g.edges(2,1);
+    g.edges(3,4);
+    g.edges(4,5);
+    g.edges(2,3);
+    g.edges(3,5);
+    
+    g.printadjlist();
+
+    return 0;
+}
